@@ -1,0 +1,34 @@
+﻿@model ProjetoSimpliss.Models.Beneficios
+
+@{
+    ViewData["Title"] = "Deletar Benefício";
+}
+
+<div class="container mt-4">
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+    <p class="lead">Tem certeza de que deseja excluir o benefício abaixo?</p>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="text-primary">Detalhes do Benefício</h4>
+            <dl class="row mt-3">
+                <!-- Nome do Benefício -->
+                <dt class="col-sm-4 fw-bold">Nome do Benefício:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.NomeBeneficio)</dd>
+
+                <!-- Porcentagem de Desconto -->
+                <dt class="col-sm-4 fw-bold">Porcentagem de Desconto:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PorcentagemDesconto)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex">
+            <button type="submit" class="btn btn-danger me-2">Excluir</button>
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </div>
+    </form>
+</div>

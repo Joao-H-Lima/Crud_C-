@@ -1,0 +1,55 @@
+﻿@model ProjetoSimpliss.ViewModels.ContribuinteCreateViewModel
+
+<h1>Adicionar Contribuinte</h1>
+
+<form asp-action="CreateWithBeneficios" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="CNPJ" class="control-label"></label>
+        <input asp-for="CNPJ" class="form-control" />
+        <span asp-validation-for="CNPJ" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RazaoSocial" class="control-label"></label>
+        <input asp-for="RazaoSocial" class="form-control" />
+        <span asp-validation-for="RazaoSocial" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataAbertura" class="control-label"></label>
+        <input asp-for="DataAbertura" class="form-control" type="date" />
+        <span asp-validation-for="DataAbertura" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RegimeTributacao" class="control-label"></label>
+        <select asp-for="RegimeTributacao" class="form-control">
+            <option value="">Selecione um regime</option>
+            <option value="MEEPP_OP_Simples">MEEPP_OP_Simples</option>
+            <option value="MEEPP_Nao_OP_Simples">MEEPP_Nao_OP_Simples</option>
+            <option value="Variavel">Variável</option>
+            <option value="Insento">Insento</option>
+            <option value="MEI">MEI</option>
+        </select>
+        <span asp-validation-for="RegimeTributacao" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Benefícios</label>
+        <div>
+            @foreach (var beneficio in Model.Beneficios)
+            {
+                <div class="form-check">
+                    <!-- Alterei o asp-for para referenciar o índice correto no model -->
+                    <input type="checkbox" class="form-check-input"
+                           name="SelectedBeneficios" value="@beneficio.Id" />
+                    <!-- asp-for="Beneficios.FirstOrDefault(b => b.Id == @beneficio.Id).IsSelected"-->
+                    <label class="form-check-label">@beneficio.NomeBeneficio</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+    </div>
+</form>

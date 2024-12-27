@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjetoSimpliss</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProjetoSimpliss.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            padding-top: 4.5rem;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 0.5rem 0; /* Reduz o tamanho do padding */
+            font-size: 0.8rem; /* Ajusta o tamanho da fonte, se necessário */
+            margin-top: 1rem; /* Garante um espaçamento do conteúdo acima */
+        }
+        .navbar-brand, .nav-link {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Beneficios" asp-action="Index">Benefícios</a>
+                <a class="navbar-brand ms-3" asp-area="" asp-controller="Contribuintes" asp-action="Index">Contribuintes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Contribuintes" asp-action="CalculoImposto">Calcular Imposto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-center">
+        <div class="container">
+            <span class="text-muted">&copy; 2024 - ProjetoSimpliss by J.H - </span>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

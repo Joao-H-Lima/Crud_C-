@@ -1,0 +1,31 @@
+﻿@model ProjetoSimpliss.Models.Beneficios
+
+@{
+    ViewData["Title"] = "Detalhes do Benefício";
+}
+
+<div class="container mt-4">
+    <h1 class="text-primary">@ViewData["Title"]</h1>
+    <p class="lead">Visualize as informações detalhadas do benefício selecionado.</p>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="text-secondary">Informações do Benefício</h4>
+            <dl class="row mt-3">
+                <!-- Nome do Benefício -->
+                <dt class="col-sm-4 fw-bold">Nome do Benefício:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.NomeBeneficio)</dd>
+
+                <!-- Porcentagem de Desconto -->
+                <dt class="col-sm-4 fw-bold">Porcentagem de Desconto:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PorcentagemDesconto)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary me-2">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>

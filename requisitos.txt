@@ -1,0 +1,33 @@
+beneficios = idCodigoBeneficio / NomeBeneficio / percentualDesconto /
+	
+	cadastrarBeneficio / alterarBeneficio / excluirBeneficio
+
+-------------------
+
+Contribuintes = idCodigoContrib / CNPJ / razaoSocial / dataAbertura / RegimeTributacao / Beneficios
+
+	cadastrarContrib / editarContrib / excluirContrib / inserirBeneficio
+
+----------------------
+
+Simulação pagamento = selecionarCNPJ (contém beneficios) / calcularDesconto / 
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BeneficioId, "Benefício", htmlAttributes: new { @class = "control-label" })
+
+                @if (ViewBag.Beneficios != null && ((List<ProjetoSimpliss.Models.Beneficios>)ViewBag.Beneficios).Count > 0)
+                {
+                    @Html.DropDownListFor(model => model.BeneficioId,
+                             new SelectList((List<ProjetoSimpliss.Models.Beneficios>)ViewBag.Beneficios, "Id", "Descricao"),
+                             "- Selecione um Benefício -",
+                             new { @class = "form-control" })
+                }
+                else
+                {
+                    <span class="text-danger">Nenhum benefício disponível.</span>
+                }
+
+                @Html.ValidationMessageFor(model => model.BeneficioId, "", new { @class = "text-danger" })
+            </div>*/
